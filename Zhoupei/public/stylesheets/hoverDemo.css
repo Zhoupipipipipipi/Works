@@ -1,0 +1,51 @@
+.heading-works h1{ letter-spacing: normal;  }
+/*button样式*/
+.list-btn{  }
+.item-btn{ border: 3px solid #b3b9bf; color: #b3b9bf; margin: 5px; padding: 10px 15px; background: none; cursor: pointer; }
+.item-btn-active{ border-color: #2c3f52; color: #2c3f52; }
+/*统一样式*/
+.item-hover{ display: none; }
+.list-hover{ display: flex; justify-content: center; flex-wrap: wrap; }
+.list-hover-item{ width: 400px; margin: 20px; position: relative; }
+.item-hover-img{ width: 400px; height: 280px; }
+.hover-show{ position: absolute; top: 0; width: 400px; height: 280px; background: #2c3f52; text-align: center;  }
+.hover-show h4{ color: #fff; font-size: 24px; font-weight: 300; }
+.hover-show p{ color: #e14c6c; font-size: 20px;  }
+
+/*第一种样式*/
+.hover-show1{ opacity: 0;  transition: opacity 0.3s,transform 0.3s; }
+.hover-show1 h4{  margin: 100px 0 10px; }
+.hover-show1 p{ }
+.hover-show1:hover{ opacity: 1; transform: translate(15px,15px);}
+
+/*第二种样式*/
+.item-hover2-img{ transition: transform 0.3s; }
+.item-hover2-img:hover{ transform: translateY(-80px); }
+.hover-show2{ text-align: left; z-index: -1; }
+.hover-show2 h4{ margin: 220px 10px 0 30px; }
+.hover-show2 p{ margin-left: 30px; }
+
+/*第三种样式*/
+.list-hover-item3{ perspective: 1700px; }
+.item-hover3-img{ transition: transform 0.6s; }
+.list-hover-item3:hover img{ transform: translateX(100px); }
+.list-hover-item3:hover .hover-show3{ transform: rotateY(0deg); opacity: 1;  }
+.hover-show3{ text-align: left; transform: rotateY(-90deg); width: 200px; transition: transform 0.6s,opacity 0.3s; transform-origin: 0 0; opacity: 0; }
+.hover-show3 h4{ margin: 30px 10px 0 30px; }
+.hover-show3 p{ margin-left: 30px; }
+.box-img{ overflow: hidden; width: 400px; height: 280px; }
+
+/*第四种样式*/
+.hover-show4{ text-align: left; z-index: -1; transition: transform 0.4s,opacity 0.4s; opacity: 0; width: 430px; height: 400px; transform: translateX(-15px) translateY(-15px) scale(0.8);}
+.hover-show4 h4{ margin: 320px 10px 0 30px; }
+.hover-show4 p{ margin-left: 30px; }
+.list-hover-item4:hover .hover-show4{ transform: translateX(-15px) translateY(-15px) scale(1); opacity: 1;  }
+.list-hover-item4:hover{ z-index: 10;  }
+
+/*第五种样式*/
+.item-hover5-img{ transition: transform 0.3s; }
+.item-hover5-img:hover{ transform: translateY(-50px); }
+.hover-show5{ text-align: left; z-index: -1; }
+.hover-show5 h4{ margin: 240px 10px 0 30px; font-size: 20px; }
+.hover-show5 p{ margin-left: 30px; font-size: 16px;}
+.box-img5{ overflow: hidden; width: 400px; height: 280px; }

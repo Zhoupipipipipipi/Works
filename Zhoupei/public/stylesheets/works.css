@@ -1,0 +1,30 @@
+.heading-works{ background: #f6f6f6; padding: 30px 0; color: #888; text-align: center; }
+.heading-works h1{ font-size: 40px; letter-spacing: 6px; font-weight: normal; line-height: 1.5;  }
+.heading-works p{ color: #ceccc6; font-size: 24px; }
+.container-works{ width: 1200px; margin: 0 auto; }
+.list-works{  }
+.item-works{ overflow: hidden; }
+.item-works{ padding: 25px 0; }
+.item-left{ width: 40%; float: left; height: 300px; padding: 10px 20px; font-size: 20px; text-align: right; color: #89867e; line-height: 1.5; border-right: solid 1px #dfdfdf;  }
+.item-left h2{ font-size: 32px; line-height: 2; font-weight: 200; }
+.item-left p{ font-size: 26px; font-family: cursive;}
+.item-right{ display: inline-block; float: left; padding: 10px 20px; }
+.item-image{ width: 300px; height: 300px; transition: transform 0.3s ease-in; }
+
+.item-style{ display: inline-block; position: relative; overflow: hidden;  }
+/*第一种动画效果*/
+.item-style1::before{ content: "微信模仿页面"; height: 110px; width: 260px; font-size: 20px; padding: 20px; position: absolute; background: #ffb84e; color: #fff; transform: translateY(-150px); transition: transform 0.3s ease-in;  }
+.item-style1::after{ content: "模仿微信页面我的页面，所用到的技术有html/css/vue.js"; height: 110px; width: 260px; font-size: 12px; padding: 20px; position: absolute; background: #f27546; color: #fff; transform: translateY(0px); transition: transform 0.3s ease-in; }
+.item-style1:hover::before{ transform: translateY(0px); }
+.item-style1:hover::after{ transform: translateY(-155px); }
+/*第二种动画效果*/
+.item-style2::before{ content: "微信模仿页面"; height: 70px; width: 260px; font-size: 26px; padding: 20px; position: absolute; background: #cecece; color: #05b7ba; transform: translateX(-300px); transition: transform 0.3s ease-in;}
+.item-style2::after{ content: "模仿微信页面我的页面，所用到的技术有html/css/vue.js"; height: 180px; width: 260px; font-size: 12px; padding: 20px; position: absolute; bottom: 0; background: #cecece; color: #fff; transform: translateX(-300px); transition: transform 0.3s ease-in;  }
+.item-style2:hover::before{ transform: translateX(0px); }
+.item-style2:hover::after{ transform: translateX(0px); }
+.item-style2:hover img{ transform: translateX(300px); }
+/*第三种动画效果*/
+.item-style3::before{ content: "微信模仿页面"; height: 100px; width: 260px; font-size: 30px; padding: 20px; position: absolute; background: #A21f00; color: #fff; transition: opacity 0.3s ease-in; opacity: 0; }
+.item-style3::after{ content: "模仿微信页面我的页面，所用到的技术有html/css/vue.js"; height: 150px; width: 260px; font-size: 12px; padding: 20px; position: absolute; bottom: 0; background: #db2e00; color: #fff; transition: opacity 0.3s ease-in; opacity: 0; }
+.item-style3:hover::before{ opacity: 1; }
+.item-style3:hover::after{ opacity: 1; }
