@@ -1,0 +1,23 @@
+body{ overflow: hidden; height: 100%; }
+/*书的主内容*/
+.container-book{ width: 100%; height: 100%; position: absolute; left: 0; top: 0; transition: left 0.4s; }
+.container-book-active{ left: 300px; }
+.list-btn-book{ margin: 20px; }
+.box-icon{  display: inline-block; width: 35px; height: 35px;  }
+.icon-red{ display: inline-block; width: 35px; height: 35px; border-radius: 50%; margin-right: 10px; cursor: pointer; }
+.icon-red:hover{ background-color: #000; }
+.icon-catalog{ background: url(../images/sanheng.png) center center no-repeat #46ceb4; background-size: 65%; }
+.icon-left{ background: url(../images/leftArrow.png) center center no-repeat #46ceb4; background-size: 65%; }
+.icon-right{ background: url(../images/rightArrow.png) center center no-repeat #46ceb4; background-size: 65%; }
+.box-content-book{ position: relative; width: 100%; height: 100%; }
+.item-content-book{ position: absolute; top: 0; left: 0;  }
+/*书的目录*/
+.container-catalog{ background: #46ceb4; color: #fff; width: 300px; height: 100%; position: absolute; left: -300px; top: 0; transition: left 0.4s; }
+.container-catalog-active{ left: 0; }
+.title-catalog{ font-size: 28px; padding: 20px;}
+.list-catalog{ font-size: 20px; }
+.item-catalog{ padding: 20px; cursor: pointer;  }
+.item-catalog:hover{ background: #a7eadd; }
+.item-catalog-active{ background: #a7eadd; }
+.heading-book{ font-weight: 300; font-size: 40px; padding: 0 0 10px; color: #333; margin: 40px 8%; text-align: left; box-shadow: 0 10px 0 rgba(0,0,0,0.02); text-shadow: 0 0 2px #fff; }
+.content-book{ font-size: 18px; line-height: 1.6; font-weight: 300; padding: 5px 8%; text-align: justify;}

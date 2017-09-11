@@ -18,6 +18,26 @@ router.get('/hoverDemo', async (ctx, next) => {
   })
 })
 
+//算法
+router.get('/algorithm', async (ctx, next) => {
+  await ctx.render('algorithm', {
+  })
+});
+
+//导航
+router.get('/nav', async (ctx, next) => {
+  await ctx.render('nav', {
+  })
+});
+
+//翻书
+router.get('/books', async (ctx, next) => {
+  await ctx.render('books', {
+  })
+});
+
+
+
 
 router.get('/string', async (ctx, next) => {
   ctx.body = 'koa2 string'

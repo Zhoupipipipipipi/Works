@@ -1,0 +1,26 @@
+body{ background: #b6f2e7; }
+.heading-works{ background: #a7eadd; }
+.heading-works h1,.heading-works p{color: #fff;}
+
+/*导航样式*/
+.nav-left{ width: 250px; float: left; position: relative; margin-top: 50px;  }
+.nav-heading{ position: absolute; color: #46ceb4; font-size: 26px; cursor: pointer; z-index: -1; }
+.nav-heading-active .icon-three{ transform:translateX(250px); transition:transform 0.5s; background-position:-10px -114px; }
+.nav-heading-active .text-nav-heading{ transform:translateY(-40px); transition:transform 0.5s; }
+.icon-three{ display: inline-block; width: 32px; height: 32px; background: url("../images/nav.png") -62px -114px; vertical-align: middle; transform:translateX(0px); transition:transform 0.5s; }
+.text-nav-heading{ display: inline-block; transform:translateY(0px); transition:transform 0.5s;}
+.list-nav{ color: #fff; display: none; font-size: 18px; }
+.item-nav{ margin-bottom: 45px; cursor: pointer; }
+.icon-nav{ display: inline-block; width: 32px; height: 32px; background: url(../images/nav.png); vertical-align: middle; }
+.icon-PC{ width: 42px; background-position: -10px -10px; }
+.icon-app{ background-position: -114px -114px; }
+.icon-animation{ background-position: -134px -62px; }
+.icon-js{ background-position: -10px -62px; }
+.text-nav{ margin-left: 10px; letter-spacing: 3px; }
+.item-nav:hover .icon-PC{ background-position: -72px -10px; }
+.item-nav:hover .icon-app{ background-position: -186px -10px; }
+.item-nav:hover .icon-animation{ background-position: -134px -10px; }
+.item-nav:hover .icon-js{ background-position: -62px -62px; }
+.item-nav:hover .text-nav{ color: #46ceb4; }
+
+

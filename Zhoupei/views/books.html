@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>books</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/book/default.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/book/bookblock.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/books.css">
+	<script type="text/javascript" src="javascripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<!-- 书的主内容 -->
+	<div class="container-book">
+		<div class="list-btn-book">
+			<div class="box-icon">
+				<span id="showCatalog" class="icon-red icon-catalog" data-active="false"></span>	
+			</div>
+			<div class="box-icon">
+				<span class="icon-red icon-left icon-change" id="btnPrev"></span>	
+			</div>
+			<div class="box-icon">
+				<span class="icon-red icon-right icon-change" id="btnNext"></span>	
+			</div>
+		</div>
+		<div id="bookBox" class="bb-bookblock box-content-book">
+		</div>
+	</div>
+	<!-- 书的目录 -->
+	<div class="container-catalog">
+		<div class="title-catalog">前端开发目录</div>
+		<ul class="list-catalog" id="catalog">
+		</ul>
+	</div>
+	<script type="text/javascript" src="javascripts/hoverDemo.js"></script>
+	<script type="text/javascript">
+		var info = [
+		{"title":"几种 JavaScript 动画库推荐","content":"1. AniJS.js基于 CSS3 的动画库"},
+		{"title":"前阿里主任工程师张云龙：你好，前端工程师！","content":"关于作者张云龙，全民TV 研发负责人，曾任阿里巴巴移动事业群主任工程师，百度高级研发工程师。本文转载自：前端工程——基础篇 · Issue #10 · fouber/blog0 写在前面喂喂喂，那个切图的，把页面写好就发给研发工程师套模板吧。你好，切图仔。不知道你的团队如何定义前端开发，据我所知，时至今日仍然有很多团队会把前端开发归类为产品或者设计岗位，虽然身份之争多少有些无谓，但我对这种偏见还是心存芥蒂，酝酿了许久，决定写一个系列的文章，试着从工程的角度系统的介绍一下我对前端，尤其是Web前端的理解。只要我们还把自己的工作看作为一项软件开发活动，那么我相信读过下面的内容你也一定会有所共鸣。"},
+		{"title":"输入url之后会发生什么","content":"一、浏览器解析url二、生成http请求消息请求信息主要包括：- 请求行：请求的方法（POST/GET/…）、URL、HTTP版本（1.1/2）；- 消息头：请求的附加信息，以空行结束；- 消息体：数据，比如 POST 请求时的表单数据。对应的，响应消息也有 3 个部分组成：- 状态行：HTTP版本、状态码（200/304/404/…）、解释状态的响应短语；- 消息头- 消息体：返回的数据。"},
+		{"title":"理解async/await和Promise","content":"之前用node.js的koa2框架，里面运用了大量es6的async/await，在没有加await的情况下，出现了一个promise对象，没法解析。对此进行一个详细的了解一、async函数异步处理函数，返回一个promise函数二、awaitawait是在等待async的一个返回值，这个返回值不仅仅是promise函数，也可以是任意表达式。如果不是一个promise函数，那么await表达式的结果就是它等到的东西。如果是promise表达式，那么await就会阻塞后面的代码，等着promise对象resolve，得到resolve的结果，作为await表达式的运算结果。"}
+		]
+		$('.icon-catalog').click(function(){
+			var bool = $('#showCatalog').attr('data-active');
+			if(bool=='false'){
+				$('.container-book').addClass('container-book-active');
+				$('.container-catalog').addClass('container-catalog-active');
+				$('#showCatalog').attr('data-active','true');
+				$('.icon-change').hide();
+			}
+			else{
+				$('.container-book').removeClass('container-book-active');
+				$('.container-catalog').removeClass('container-catalog-active');
+				$('#showCatalog').attr('data-active','false');
+				$('.icon-change').show();
+			}
+		});
+		for(var i= 0; i<info.length; i++){
+			$("#catalog").append('<li class="item-catalog">'+info[i].title+'</li>');
+			$('#bookBox').append('<div class="bb-item item-content-book"><div class="heading-book">'+info[i].title+'</div><div class="content-book">'+info[i].content+'</div></div>');
+		}
+		$('#btnPrev').hide();
+		var pageNum = 1;
+		var itemNum = info.length; 
+	</script>
+	<script src="javascripts/book/modernizr.custom.js"></script>
+	<script src="javascripts/book/jquerypp.custom.js"></script>
+	<script src="javascripts/book/jquery.bookblock.js"></script>
+	<script>
+			var Page = (function() {
+				
+				var config = {
+						$bookBlock : $( '#bookBox' ),
+						$navNext : $( '#btnNext' ),
+						$navPrev : $( '#btnPrev' )
+					},
+					init = function() {
+						config.$bookBlock.bookblock( {
+							speed : 800,
+							shadowSides : 0.8,
+							shadowFlip : 0.7
+						} );
+						initEvents();
+					},
+					initEvents = function() {
+						
+						var $slides = config.$bookBlock.children();
+
+						// add navigation events
+						config.$navNext.on( 'click touchstart', function() {
+							config.$bookBlock.bookblock( 'next' );
+							return false;
+						} );
+
+						config.$navPrev.on( 'click touchstart', function() {
+							config.$bookBlock.bookblock( 'prev' );
+							return false;
+						} );
+
+						// add swipe events
+						$slides.on( {
+							'swipeleft' : function( event ) {
+								config.$bookBlock.bookblock( 'next' );
+								return false;
+							},
+							'swiperight' : function( event ) {
+								config.$bookBlock.bookblock( 'prev' );
+								return false;
+							}
+						});
+
+						// add keyboard events
+						$( document ).keydown( function(e) {
+							var keyCode = e.keyCode || e.which,
+								arrow = {
+									left : 37,
+									up : 38,
+									right : 39,
+									down : 40
+								};
+
+							switch (keyCode) {
+								case arrow.left:
+									config.$bookBlock.bookblock( 'prev' );
+									break;
+								case arrow.right:
+									config.$bookBlock.bookblock( 'next' );
+									break;
+							}
+						} );
+					};
+
+					return { init : init };
+
+				})();
+		</script>
+		<script>
+				Page.init();
+		</script>
+</body>
+</html>

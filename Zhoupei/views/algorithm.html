@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>算法</title>
+	<script type="text/javascript" src="javascripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		// 冒泡排序
+		var arr = [8,12,1,5,3,9,4];
+		for(var i = arr.length-1; i>0; i--){
+			for(var j = 0; j<i; j++){
+				var max = 0;
+				if(arr[j]>arr[j+1]){
+					max = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = max;
+				}
+			}
+			console.log("冒泡排序："+arr);	
+		}
+
+		//选择排序
+		var arr2 = [8,12,1,5,3,9,4];
+		for(var i = 0; i<arr2.length; i++){
+			for(var j =i; j<arr2.length; j++){
+				var max = 0;
+				if(arr2[i]>arr2[j]){
+					max = arr2[i];
+					arr2[i] = arr2[j];
+					arr2[j] = max;
+				}
+			}
+			console.log("选择排序："+arr2);
+		}
+
+		//插入排序
+		var arr3 = [8,12,1,5,3,9,4];
+		for(var i = 0; i<arr3.length; i++){
+			for(var j = i; j > 0; j--){
+				var max;
+				if(arr3[j]<arr3[j-1]){
+					max = arr3[j];
+					arr3[j] = arr3[j-1];
+					arr3[j-1] = max;
+				}
+			}
+			console.log("插入排序："+arr3);
+		}
+
+		
+	</script>
+</body>
+</html>
