@@ -34,13 +34,17 @@
 	</div>
 	<script type="text/javascript" src="javascripts/hoverDemo.js"></script>
 	<script type="text/javascript">
-		var info = [
-		{"title":"几种 JavaScript 动画库推荐","content":"1. AniJS.js基于 CSS3 的动画库"},
-		{"title":"前阿里主任工程师张云龙：你好，前端工程师！","content":"关于作者张云龙，全民TV 研发负责人，曾任阿里巴巴移动事业群主任工程师，百度高级研发工程师。本文转载自：前端工程——基础篇 · Issue #10 · fouber/blog0 写在前面喂喂喂，那个切图的，把页面写好就发给研发工程师套模板吧。你好，切图仔。不知道你的团队如何定义前端开发，据我所知，时至今日仍然有很多团队会把前端开发归类为产品或者设计岗位，虽然身份之争多少有些无谓，但我对这种偏见还是心存芥蒂，酝酿了许久，决定写一个系列的文章，试着从工程的角度系统的介绍一下我对前端，尤其是Web前端的理解。只要我们还把自己的工作看作为一项软件开发活动，那么我相信读过下面的内容你也一定会有所共鸣。"},
-		{"title":"输入url之后会发生什么","content":"一、浏览器解析url二、生成http请求消息请求信息主要包括：- 请求行：请求的方法（POST/GET/…）、URL、HTTP版本（1.1/2）；- 消息头：请求的附加信息，以空行结束；- 消息体：数据，比如 POST 请求时的表单数据。对应的，响应消息也有 3 个部分组成：- 状态行：HTTP版本、状态码（200/304/404/…）、解释状态的响应短语；- 消息头- 消息体：返回的数据。"},
-		{"title":"理解async/await和Promise","content":"之前用node.js的koa2框架，里面运用了大量es6的async/await，在没有加await的情况下，出现了一个promise对象，没法解析。对此进行一个详细的了解一、async函数异步处理函数，返回一个promise函数二、awaitawait是在等待async的一个返回值，这个返回值不仅仅是promise函数，也可以是任意表达式。如果不是一个promise函数，那么await表达式的结果就是它等到的东西。如果是promise表达式，那么await就会阻塞后面的代码，等着promise对象resolve，得到resolve的结果，作为await表达式的运算结果。"}
-		]
-		$('.icon-catalog').click(function(){
+		var info = [     //books info
+		{"id":0,"title":"几种 JavaScript 动画库推荐","content":"1. AniJS.js基于 CSS3 的动画库"},
+		{"id":1,"title":"前阿里主任工程师张云龙：你好，前端工程师！","content":"关于作者张云龙，全民TV 研发负责人，曾任阿里巴巴移动事业群主任工程师，百度高级研发工程师。本文转载自：前端工程——基础篇 · Issue #10 · fouber/blog0 写在前面喂喂喂，那个切图的，把页面写好就发给研发工程师套模板吧。你好，切图仔。不知道你的团队如何定义前端开发，据我所知，时至今日仍然有很多团队会把前端开发归类为产品或者设计岗位，虽然身份之争多少有些无谓，但我对这种偏见还是心存芥蒂，酝酿了许久，决定写一个系列的文章，试着从工程的角度系统的介绍一下我对前端，尤其是Web前端的理解。只要我们还把自己的工作看作为一项软件开发活动，那么我相信读过下面的内容你也一定会有所共鸣。"},
+		{"id":2,"title":"输入url之后会发生什么","content":"一、浏览器解析url二、生成http请求消息请求信息主要包括：- 请求行：请求的方法（POST/GET/…）、URL、HTTP版本（1.1/2）；- 消息头：请求的附加信息，以空行结束；- 消息体：数据，比如 POST 请求时的表单数据。对应的，响应消息也有 3 个部分组成：- 状态行：HTTP版本、状态码（200/304/404/…）、解释状态的响应短语；- 消息头- 消息体：返回的数据。"},
+		{"id":3,"title":"理解async/await和Promise","content":"之前用node.js的koa2框架，里面运用了大量es6的async/await，在没有加await的情况下，出现了一个promise对象，没法解析。对此进行一个详细的了解一、async函数异步处理函数，返回一个promise函数二、awaitawait是在等待async的一个返回值，这个返回值不仅仅是promise函数，也可以是任意表达式。如果不是一个promise函数，那么await表达式的结果就是它等到的东西。如果是promise表达式，那么await就会阻塞后面的代码，等着promise对象resolve，得到resolve的结果，作为await表达式的运算结果。"}
+		];
+
+		var pageNum = 1;   //目前处于第几页
+		var itemNum = info.length;    //书本的总页数
+
+		$('.icon-catalog').click(function(){    //目录页按钮操作
 			var bool = $('#showCatalog').attr('data-active');
 			if(bool=='false'){
 				$('.container-book').addClass('container-book-active');
@@ -55,13 +59,17 @@
 				$('.icon-change').show();
 			}
 		});
-		for(var i= 0; i<info.length; i++){
-			$("#catalog").append('<li class="item-catalog">'+info[i].title+'</li>');
+		for(var i= 0; i<info.length; i++){     //遍历书本信息，填充
+			$("#catalog").append('<li class="item-catalog" data-id="'+info[i].id+'">'+info[i].title+'</li>');
 			$('#bookBox').append('<div class="bb-item item-content-book"><div class="heading-book">'+info[i].title+'</div><div class="content-book">'+info[i].content+'</div></div>');
 		}
 		$('#btnPrev').hide();
-		var pageNum = 1;
-		var itemNum = info.length; 
+
+		$('#catalog li').click(function(){
+			var id = $(this).attr('data-id');
+			pageNum = id;
+			console.log(pageNum);
+		});
 	</script>
 	<script src="javascripts/book/modernizr.custom.js"></script>
 	<script src="javascripts/book/jquerypp.custom.js"></script>
@@ -72,7 +80,8 @@
 				var config = {
 						$bookBlock : $( '#bookBox' ),
 						$navNext : $( '#btnNext' ),
-						$navPrev : $( '#btnPrev' )
+						$navPrev : $( '#btnPrev' ),
+						$nav : $('#catalog li')     //侧边栏目录
 					},
 					init = function() {
 						config.$bookBlock.bookblock( {
@@ -80,6 +89,20 @@
 							shadowSides : 0.8,
 							shadowFlip : 0.7
 						} );
+						//点击侧边栏目录显示对应内容
+						config.$nav.each(function(i){
+							$(this).on('click touchstart',function(event){
+								var $dot = $(this);
+								config.$bookBlock.bookblock('jump',i+1);
+								if(i==0){
+									pageNum=1;
+								}
+								else if(i==itemNum){
+									pageNum=itemNum-2;
+								}
+								return false;
+							})
+						});
 						initEvents();
 					},
 					initEvents = function() {
