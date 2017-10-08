@@ -36,6 +36,12 @@ router.get('/books', async (ctx, next) => {
   })
 });
 
+//Grid布局
+router.get('/gridFlex', async (ctx, next) => {
+  await ctx.render('gridFlex', {
+  })
+});
+
 
 
 

@@ -1,8 +1,5 @@
 .heading-works h1{ letter-spacing: normal;  }
-/*button样式*/
-.list-btn{  }
-.item-btn{ border: 3px solid #b3b9bf; color: #b3b9bf; margin: 5px; padding: 10px 15px; background: none; cursor: pointer; }
-.item-btn-active{ border-color: #2c3f52; color: #2c3f52; }
+
 /*统一样式*/
 .item-hover{ display: none; }
 .list-hover{ display: flex; justify-content: center; flex-wrap: wrap; }

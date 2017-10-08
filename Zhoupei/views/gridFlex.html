@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grid布局</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/grid.css">
+	<script type="text/javascript" src="javascripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<header class="heading-works">
+		<h1>Grid And Flex</h1>
+		<div class="list-btn">
+			<button class="item-btn item-btn-active" type="button" data-id="1">Grid布局</button>
+			<button class="item-btn" type="button" data-id="2">Flex布局</button>
+		</div>
+	</header>
+	<section class="container container-grid">
+		<h2 class="title-grid">Grid And Flex</h2>
+		<article class="item-layout item-layout1">
+			<img src="images/1.jpg" alt="pic">
+			<p>images/1.jpg</p>
+		</article>
+		<article class="item-layout item-layout2">
+			<img src="images/2.jpg" alt="pic">
+			<p>images/2.jpg</p>
+		</article>
+		<article class="item-layout item-layout3">
+			<img src="images/3.jpg" alt="pic">
+			<p>images/3.jpg</p>
+		</article>
+		<article class="item-layout item-layout4">
+			<img src="images/4.jpg" alt="pic">
+			<p>images/4.jpg</p>
+		</article>
+		<article class="item-layout item-layout1">
+			<img src="images/1.jpg" alt="pic">
+			<p>images/1.jpg</p>
+		</article>
+		<article class="item-layout item-layout2">
+			<img src="images/2.jpg" alt="pic">
+			<p>images/2.jpg</p>
+		</article>
+		<article class="item-layout item-layout3">
+			<img src="images/3.jpg" alt="pic">
+			<p>images/3.jpg</p>
+		</article>
+		<article class="item-layout-second item-layout5">
+			<img src="images/5.jpg" alt="pic">
+		</article>
+		<article class="item-layout-second item-layout6">
+			<img src="images/6.jpg" alt="pic">
+		</article>
+		<article class="item-layout-second item-layout7">
+			<img src="images/7.jpg" alt="pic">
+		</article>
+		<article class="item-layout-second item-layout8">
+			<img src="images/8.jpg" alt="pic">
+		</article>
+	</section>
+	<script type="text/javascript" src="javascripts/hoverDemo.js"></script>
+	<script type="text/javascript">
+		$('.item-btn').click(function() {    //点击切换布局
+			var num = $(this).attr('data-id');
+			if(num==1){
+				$('.container-grid').removeClass('container-flex');
+			}
+			else{
+				$('.container-grid').addClass('container-flex');
+			}
+		});
+	</script>
+</body>
+</html>

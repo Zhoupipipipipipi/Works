@@ -1,0 +1,50 @@
+/*grid布局*/
+.container-grid{ 
+	display: grid;
+	grid-template-columns: repeat(4,1fr);
+	grid-template-rows: repeat(3,1fr);
+	grid-gap: 10px;
+	max-width: 1300px;
+	height: auto;
+}
+.item-layout img{
+	width: 300px;
+	height: 300px;	
+}
+.item-layout{
+	grid-row-end: span 3;
+	text-align: center;
+}
+.item-layout4{ 
+	grid-row-start: 1;
+	grid-column-start: 2;
+}
+.title-grid{
+	font-size: 40px;
+	padding: 10px;
+	text-align: center;
+	grid-row: 1;
+	grid-column-start: 3;
+}
+.item-layout-second{
+	grid-column-end: span 2;
+	text-align: center;
+}
+/*flex布局*/
+.container-flex{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.container-flex .title-grid{
+	width: 100%;
+}
+.container-flex .item-layout{
+	margin: 20px;
+}
+.container-flex .item-layout-second{
+	margin: 20px;
+}
+.container-flex .item-layout-second img{
+	width: 400px;
+}
